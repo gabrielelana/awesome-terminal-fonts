@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+
+from __future__ import division
+
+import argparse
+import os
+import sys
+import re
+
+try:
+    import fontforge
+    import psMat
+except ImportError:
+    sys.stderr.write('The required FontForge modules could not be loaded.\n\n')
+    if sys.version_info.major > 2:
+        sys.stderr.write('FontForge only supports Python 2. Please run this script with the Python 2 executable - e.g. "python2 {0}"\n'.format(sys.argv[0]))
+    else:
+        sys.stderr.write('You need FontForge with Python bindings for this script to work.\n')
+    sys.exit(1)
+
+# Handle command-line arguments
+parser = argparse.ArgumentParser(description='Inspect font glyphs')
+parser.add_argument('font_path', help='font file to patch', metavar='target')
+args = parser.parse_args()
+
+try:
+    font = fontforge.open(args.font_path)
+except EnvironmentError:
+    sys.stderr.write('Unable to find font file {0}\n'.format(args.font_path))
+    sys.exit(1)
+
+def bounding_box_of(glyph):
+    try:
+        (xmin, ymin, xmax, ymax) = glyph.boundingBox()
+        return {
+            'xmin': xmin,
+            'ymin': ymin,
+            'xmax': xmax,
+            'ymax': ymax,
+            'width': xmax - ymin,
+            'height': ymax - ymin
+        }
+    except TypeError:
+        return '???'
+
+for glyph in font.glyphs():
+    print 'glyph (0x%X) - %s' % (glyph.encoding, bounding_box_of(glyph))
