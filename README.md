@@ -1,15 +1,15 @@
 # Why?
 
-Why do you want to use fancy symbols in your standard monospace font? Obviously to have fancy prompt like mine :-)
+Why do you want to use fancy symbols in your standard monospace font? Obviously to have a fancy prompt like mine :-)
 
 ![prompt](https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/why.png)
 
 And because when you live in a terminal a symbol can convey more informations in less space creating a dense and beautiful (for those who have a certain aesthetic taste) informative workspace
 
-Heavily inspired by <https://github.com/Lokaltog/vim-powerline> and the relative patch script from **Kim Silkebækken (kim.silkebaekken+vim@gmail.com)**
+Heavily inspired by <https://github.com/Lokaltog/vim-powerline> and the relative patch script from **Kim Silkebækken** (kim.silkebaekken+vim@gmail.com)
 
 You can find every patched font in `./patched` directory:
-* ./patched/Droid+Sans+Mono+for+Powerline.ttf (for further informations and license see <http://www.droidfonts.com>)
+* ./patched/Droid+Sans+Mono+Awesome.ttf (for further informations and license see <http://www.droidfonts.com>)
 
 Every font is patched with the following icon fonts:
 * ./fonts/fontawesome-webfont.ttf (for further informations and license see <http://fortawesome.github.io/Font-Awesome>)

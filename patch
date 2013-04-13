@@ -85,9 +85,11 @@ font = open_font(args.target_font_path)
 font.encoding = 'ISO10646'
 force_em_size_to_be_equal(symbols, font)
 if args.rename_as:
+    font.fontname = args.rename_as.replace(' ', '')
     font.familyname = args.rename_as
     font.fullname = args.rename_as
-    font.fontname = args.rename_as
+    font.appendSFNTName('English (US)', 'Preferred Family', font.familyname)
+    font.appendSFNTName('English (US)', 'Compatible Full', font.fullname)
 
 ratio = float(args.ratio)
 shift_x = float(args.shift_x)
@@ -108,7 +110,7 @@ for symbol in symbols.glyphs():
 
 output_name, extension = os.path.split(args.target_font_path)[1].rsplit('.', 1)
 if args.rename_as:
-    output_name = args.rename_as
+    output_name = args.rename_as.replace(' ', '+')
 
 font.generate('{0}.{1}'.format(output_name, extension))
 
