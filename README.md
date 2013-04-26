@@ -10,6 +10,7 @@ Heavily inspired by <https://github.com/Lokaltog/vim-powerline> and the relative
 
 You can find every patched font in `./patched` directory:
 * ./patched/Droid+Sans+Mono+Awesome.ttf (for further informations and license see <http://www.droidfonts.com>)
+* ./patched/Inconsolata+Awesome.ttf (for further informations and license see <http://www.levien.com/type/myfonts/inconsolata.html>)
 
 Every font is patched with the following icon fonts:
 * ./fonts/fontawesome-webfont.ttf (for further informations and license see <http://fortawesome.github.io/Font-Awesome>)
