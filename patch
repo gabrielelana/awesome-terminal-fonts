@@ -24,6 +24,7 @@ parser.add_argument('target_font_path', help='font file to patch', metavar='targ
 parser.add_argument('--symbols', help='font file with symbols', dest='symbols_font_path')
 parser.add_argument('--rename-as', help='name of the resulting patched font', dest='rename_as')
 parser.add_argument('--starting-at', help='codepoint where to start to copy symbols', dest='starting_at', default='0xe000')
+parser.add_argument('--to-namespace', help='all the copied glyphs shall be renamed as <NAMESPACE>_<ORIGINAL_NAME>', dest='to_namespace')
 parser.add_argument('--ratio', help='how much to force to scale proportionally the symbols glyphs', dest='ratio', default='1.0')
 parser.add_argument('--shift-x', help='how much to force to shift the symbols glyphs', dest='shift_x', default='0.0')
 parser.add_argument('--shift-y', help='how much to force to shift the symbols glyphs', dest='shift_y', default='0.0')
@@ -100,13 +101,19 @@ symbol_to_font = adapt(symbols_bounding_box, font_bounding_box, ratio, shift_x, 
 symbol_codepoint = int(args.starting_at, 0)
 
 
-for symbol in symbols.glyphs():
-    symbols.selection.select(symbol.encoding)
-    symbols.copy()
-    font.selection.select(symbol_codepoint)
-    font.paste()
-    font.transform(symbol_to_font)
+for symbol in symbols.glyphs("encoding"):
+    if symbol.width > 0 and symbol.unicode > 0:
+      symbols.selection.select(symbol.encoding)
+      symbols.copy()
+      symbol_name = symbol.glyphname
+      if args.to_namespace:
+        symbol_name = "{0}_{1}".format(args.to_namespace.upper(), symbol.glyphname.upper().replace('-', '_'))
+      font.selection.select(symbol_codepoint)
+      font.paste()
+      font.transform(symbol_to_font)
+      font.createMappedChar(symbol_codepoint).glyphname = symbol_name
     symbol_codepoint += 1
+
 
 output_name, extension = os.path.split(args.target_font_path)[1].rsplit('.', 1)
 if args.rename_as:
