@@ -15,13 +15,13 @@ LayerCount: 2
 Layer: 0 1 "Back"  1
 Layer: 1 1 "Fore"  0
 NeedsXUIDChange: 1
-XUID: [1021 108 1960730997 7846954]
+XUID: [1021 108 1960730997 10259749]
 FSType: 8
 OS2Version: 3
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1161020814
-ModificationTime: 1366973079
+ModificationTime: 1384097189
 PfmFamily: 17
 TTFWeight: 500
 TTFWidth: 5
@@ -82,7 +82,7 @@ NameList: Adobe Glyph List
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 57420 33 14
+WinInfo: 57255 33 14
 BeginChars: 65611 368
 
 StartChar: .notdef
@@ -10205,70 +10205,69 @@ EndChar
 StartChar: uniE0B0
 Encoding: 57520 57520 292
 Width: 512
-VWidth: 977
 GlyphClass: 2
-Flags: WO
+Flags: HW
 LayerCount: 2
 Fore
 SplineSet
--41 829.006 m 5,0,-1
- 561 322.026 l 5,1,-1
- -41 -184.006 l 5,2,-1
- -41 829.006 l 5,0,-1
+-41 803.675 m 1,0,-1
+ 561 322.025 l 1,1,-1
+ -41 -158.675 l 1,2,-1
+ -41 803.675 l 1,0,-1
 EndSplineSet
 EndChar
 
 StartChar: uniE0B1
 Encoding: 57521 57521 293
 Width: 512
-VWidth: 975
+VWidth: 988
 GlyphClass: 2
-Flags: W
+Flags: HW
 LayerCount: 2
 Fore
 SplineSet
-413 318.345 m 1,0,-1
- -131 -178.21 l 1,1,-1
- -84 -217.062 l 1,2,-1
- 504 318.345 l 1,3,-1
- -70 830.062 l 1,4,-1
- -117 791.211 l 1,5,-1
- 413 318.345 l 1,0,-1
+413 317.425 m 1,0,-1
+ -131 -153.775 l 1,1,-1
+ -84 -190.825 l 1,2,-1
+ 504 317.425 l 1,3,-1
+ -70 803.825 l 1,4,-1
+ -117 766.775 l 1,5,-1
+ 413 317.425 l 1,0,-1
 EndSplineSet
 EndChar
 
 StartChar: uniE0B2
 Encoding: 57522 57522 294
 Width: 502
-VWidth: 977
+VWidth: 988
 GlyphClass: 2
-Flags: HWO
+Flags: HW
 LayerCount: 2
 Fore
 SplineSet
-543 829.006 m 5,0,-1
- -49 322.026 l 1,1,-1
- 543 -184.006 l 5,2,-1
- 543 829.006 l 5,0,-1
+543 803.675 m 1,0,-1
+ -49 322.025 l 1,1,-1
+ 543 -158.675 l 1,2,-1
+ 543 803.675 l 1,0,-1
 EndSplineSet
 EndChar
 
 StartChar: uniE0B3
 Encoding: 57523 57523 295
 Width: 512
-VWidth: 975
+VWidth: 988
 GlyphClass: 2
-Flags: W
+Flags: HW
 LayerCount: 2
 Fore
 SplineSet
-99 318.345 m 1,0,-1
- 643 -178.21 l 1,1,-1
- 596 -217.062 l 1,2,-1
- 8 318.345 l 1,3,-1
- 582 830.062 l 1,4,-1
- 629 791.211 l 1,5,-1
- 99 318.345 l 1,0,-1
+99 317.425 m 1,0,-1
+ 643 -153.775 l 1,1,-1
+ 596 -190.825 l 1,2,-1
+ 8 317.425 l 1,3,-1
+ 582 803.825 l 1,4,-1
+ 629 766.775 l 1,5,-1
+ 99 317.425 l 1,0,-1
 EndSplineSet
 EndChar
 
