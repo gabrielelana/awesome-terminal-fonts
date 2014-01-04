@@ -1,0 +1,37 @@
+#!/usr/bin/env python2
+
+import argparse
+import os
+import sys
+import re
+
+try:
+    import fontforge
+    import psMat
+except ImportError:
+    sys.stderr.write('The required FontForge modules could not be loaded.\n\n')
+    if sys.version_info.major > 2:
+        sys.stderr.write('FontForge only supports Python 2. Please run this script with the Python 2 executable')
+    else:
+        sys.stderr.write('You need FontForge with Python bindings for this script to work.\n')
+    sys.exit(1)
+
+parser = argparse.ArgumentParser(description='Creates a map between the name of a glyph and its codepoint')
+parser.add_argument('font_file', help='path to the font file', metavar='target')
+parser.add_argument('--namespace', help='the glyph name will be <NAMESPACE>_<ORIGINAL_NAME>', dest='namespace', required=True)
+parser.add_argument('--starting-at', help='codepoint where to start to export', dest='starting_at', default='0xe000')
+args = parser.parse_args()
+
+starting_at = int(args.starting_at, 0)
+font_to_export = fontforge.open(args.font_file)
+
+name_to_codepoint = []
+for symbol in font_to_export.glyphs('encoding'):
+  if symbol.width > 0 and symbol.unicode >= starting_at:
+    symbol_name = '{0}_{1}'.format(args.namespace.upper(), symbol.glyphname.upper().replace('-', '_'))
+    symbol_codepoint = symbol.encoding
+    name_to_codepoint.append((symbol_name, symbol_codepoint))
+
+print('{0}_GLYPHS_LOADED=1'.format(args.namespace.upper()))
+for name, codepoint in name_to_codepoint:
+  print('CODEPOINT_OF_{0}=\'{1:x}\''.format(name, codepoint))
