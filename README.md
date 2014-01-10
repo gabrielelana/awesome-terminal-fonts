@@ -1,5 +1,4 @@
 # Why?
-
 Why do you want to use fancy symbols in your standard monospace font? Obviously to have a fancy prompt like mine :-)
 
 ![prompt](https://github.com/gabrielelana/awesome-terminal-fonts/raw/master/why.png)
@@ -8,34 +7,18 @@ And because when you live in a terminal a symbol can convey more informations in
 
 Heavily inspired by <https://github.com/Lokaltog/vim-powerline> and the relative patch script from **Kim Silkebækken** (kim.silkebaekken+vim@gmail.com)
 
-You can find every patched font in `./patched` directory:
-* ./patched/Droid+Sans+Mono+Awesome.ttf (for further informations and license see <http://www.droidfonts.com>)
-* ./patched/Inconsolata+Awesome.ttf (for further informations and license see <http://www.levien.com/type/myfonts/inconsolata.html>)
+# Patching vs Fallback
+There's two strategy that could be used to use symbols in a terminal
+* you can take a bunch of symbol fonts, your favourite monospace font and merge them together (patching strategy) 
+* you can use a feature of freetype2 font engine, basically you can say that whenever the current font doesn't have a glyph for a certain codepoint then fallback and go look into other fonts (fallback strategy)
 
-Every font is patched with the following icon fonts:
-* ./fonts/fontawesome-webfont.ttf (for further informations and license see <http://fortawesome.github.io/Font-Awesome>)
-* ./fonts/octicons-regular.ttf (for further informations and license see <https://github.com/blog/1135-the-making-of-octicons>)
-* ./fonts/trellicons-regular.ttf (for further informations and license see <http://blog.fogcreek.com/trello-uses-an-icon-font-and-so-can-you>)
+Initially I used the first strategy later I switched to the second. The patching strategy it's more reliable and portable, the problem is that you need to patch every monospace font you want to use and patching a single font it's a lot of manual fine tuning work. If you want you can find all previous patched fonts in [patching-strategy branch](https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy)
 
-If you use these fonts for <https://github.com/Lokaltog/vim-powerline> then you should have this in your .vimrc
+# Font Map
+* ... TODO
 
-```vimscript
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_dividers_override = [[0xe0b0], [0xe0b1], [0xe0b2], [0xe0b3]]
-let g:Powerline_symbols_override = {
-  \ 'BRANCH': [0xe238],
-  \ 'RO'    : [0xe0a2],
-  \ 'FT'    : [0xe1f6],
-  \ 'LINE'  : [0xe0a1],
-\ }
-```
-
-## How to patch
-
-You need to have installed fontforge with Python bindings. For Ubuntu users the required package is **python-fontforge**, for Arch Linux users the required package is **fontforge**. It should be something similar for other distros.
-
-Every font to patch has a dedicated script because for a really good result some parameters have to be manually tuned :-) so for example to patch by yourself `Droid Sans Mono` you should run
-
-```shell
-$ ./droid.sh
-```
+# How to install
+* copy all the fonts from `./build` directory to `~/.fonts` directory
+* run `fc-cache -fv ~/.fonts` to let freetype2 know of those fonts
+* customize the configuration file `./config/10-symbols.conf` replacing `PragmataPro` with the name of the font you want to use in the terminal (I will add more fonts in the future so that this step could be skippable)
+* copy the above configuration file to `~/.config/fontconfig/conf.d` directory
