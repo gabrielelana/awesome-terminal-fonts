@@ -17,7 +17,7 @@ except ImportError:
 parser = argparse.ArgumentParser(description='Relocates glyphs from codepoints to codepoints')
 parser.add_argument('font_file', help='path to the font file', metavar='target')
 parser.add_argument('--save-as', help='path where to save the result font file', dest='save_as', required=True)
-parser.add_argument('--from', help='relocate glyhps starting from this codepoint, if omitted start from the beginning', dest='from_codepoint', default='0x0000' required=False)
+parser.add_argument('--from', help='relocate glyhps starting from this codepoint, if omitted start from the beginning', dest='from_codepoint', default='0x0000', required=False)
 parser.add_argument('--to', help='relocate glyphs starting to this codepoint', dest='to_codepoint', required=True)
 args = parser.parse_args()
 
