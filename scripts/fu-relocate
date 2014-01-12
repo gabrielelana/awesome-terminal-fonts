@@ -1,0 +1,45 @@
+#!/usr/bin/env python2
+
+import argparse
+import os
+import sys
+
+try:
+    import fontforge
+except ImportError:
+    sys.stderr.write('The required FontForge modules could not be loaded.\n\n')
+    if sys.version_info.major > 2:
+        sys.stderr.write('FontForge only supports Python 2. Please run this script with the Python 2 executable')
+    else:
+        sys.stderr.write('You need FontForge with Python bindings for this script to work.\n')
+    sys.exit(1)
+
+parser = argparse.ArgumentParser(description='Relocates glyphs from codepoints to codepoints')
+parser.add_argument('font_file', help='path to the font file', metavar='target')
+parser.add_argument('--save-as', help='path where to save the result font file', dest='save_as', required=True)
+parser.add_argument('--from', help='relocate glyhps starting from this codepoint, if omitted start from the beginning', dest='from_codepoint', default='0x0000' required=False)
+parser.add_argument('--to', help='relocate glyphs starting to this codepoint', dest='to_codepoint', required=True)
+args = parser.parse_args()
+
+original_font = fontforge.open(args.font_file)
+from_codepoint = int(args.from_codepoint, 0)
+to_codepoint = int(args.to_codepoint, 0)
+
+relocated_font = fontforge.font()
+relocated_font.encoding = original_font.encoding
+relocated_font.fontname = original_font.fontname
+relocated_font.fullname = original_font.fullname
+relocated_font.familyname = original_font.familyname
+relocated_font.version = original_font.version
+relocated_font.copyright = original_font.copyright
+
+for symbol in original_font.glyphs('encoding'):
+    if symbol.width > 0 and symbol.unicode >= from_codepoint:
+        original_font.selection.select(symbol.encoding)
+        original_font.copy()
+        relocated_font.createChar(to_codepoint, symbol.glyphname)
+        relocated_font.selection.select(to_codepoint)
+        relocated_font.paste()
+        to_codepoint += 1
+
+relocated_font.generate(args.save_as)
