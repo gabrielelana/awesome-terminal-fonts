@@ -7,7 +7,6 @@ import re
 
 try:
     import fontforge
-    import psMat
 except ImportError:
     sys.stderr.write('The required FontForge modules could not be loaded.\n\n')
     if sys.version_info.major > 2:
