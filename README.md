@@ -18,6 +18,7 @@ Initially I used the first strategy, later I switched to the second. The patchin
 * Wouldn't be cool to be able to call glyphs/symbols by name (ex. AWESOME_LONG_ARROW_DOWN) instead of by codepoint (ex. \uf175)? This is what font maps are ment for, for every symbol font in `./fonts` directory you can find a map file in `./build` directory that maps each glyph's name to its codepoint in a way that is understandable by most shells
 
 # How to install
+* if you don't have fontcache installed, one way to get it is to run `brew install fc-cache` 
 * copy all the fonts from `./build` directory to `~/.fonts` directory
 * run `fc-cache -fv ~/.fonts` to let freetype2 know of those fonts
 * customize the configuration file `./config/10-symbols.conf` replacing `PragmataPro` with the name of the font you want to use in the terminal (I will add more fonts in the future so that this step could be skippable)
