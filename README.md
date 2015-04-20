@@ -17,6 +17,12 @@ Initially I used the first strategy, later I switched to the second. The patchin
 ## Font Maps
 * Wouldn't be cool to be able to call glyphs/symbols by name (ex. AWESOME_LONG_ARROW_DOWN) instead of by codepoint (ex. `\uf175`)? This is what font maps are meant for, for every symbol font in `./fonts` directory you can find a map file in `./build` directory that maps each glyph's name to its codepoint in a way that is understandable by most shells
 
+## Included Fonts
+In this repository you can find a bunch of fonts that I use as symbol fonts with the relative font maps
+* **Font Awesome**: `./fonts/fontawesome-webfont.ttf`, for further informations and license see http://fortawesome.github.io/Font-Awesome
+* **Octicons**: `./fonts/octicons-regular.ttf`, for further informations and license see https://github.com/blog/1135-the-making-of-octicons
+* **Pomicons**: `./fonts/pomicons-regular.ttf`, for further informations and license see https://github.com/gabrielelana/pomicons
+
 ## How to install
 * (OSX) if you don't have fontcache installed, one way to get it is to run `brew install fc-cache`
 * copy all the fonts from `./build` directory to `~/.fonts` directory
