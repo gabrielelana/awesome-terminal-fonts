@@ -23,3 +23,6 @@ Initially I used the first strategy, later I switched to the second. The patchin
 * run `fc-cache -fv ~/.fonts` to let freetype2 know of those fonts
 * customize the configuration file `./config/10-symbols.conf` replacing `PragmataPro` with the name of the font you want to use in the terminal (I will add more fonts in the future so that this step could be skippable)
 * copy the above configuration file to `~/.config/fontconfig/conf.d` directory
+
+## License
+[MIT](https://github.com/gabrielelana/awesome-terminal-fonts/blob/master/LICENSE)
