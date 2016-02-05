@@ -20,5 +20,9 @@ echo 'export maps for all fonts...'
 ./scripts/fu-map ./build/fontawesome-regular.ttf --namespace 'AWESOME' 2> /dev/null > ./build/fontawesome-regular.sh
 ./scripts/fu-map ./build/devicons-regular.ttf --namespace 'DEVICONS' 2> /dev/null > ./build/devicons-regular.sh
 
+for file in ./fonts/*.sh; do
+  cat $file >> ./build/`basename $file`
+done
+
 echo 'you can find fonts and maps in local ./build directory :-)'
 echo 'done!'
