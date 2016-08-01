@@ -23,12 +23,18 @@ In this repository you can find a bunch of fonts that I use as symbol fonts with
 * **Octicons**: `./fonts/octicons-regular.ttf`, for further informations and license see https://github.com/blog/1135-the-making-of-octicons
 * **Pomicons**: `./fonts/pomicons-regular.ttf`, for further informations and license see https://github.com/gabrielelana/pomicons
 
-## How to install
-* (OSX) if you don't have fontcache installed, one way to get it is to run `brew install fontconfig`
+## How to install (Linux)
 * copy all the fonts from `./build` directory to `~/.fonts` directory
 * run `fc-cache -fv ~/.fonts` to let freetype2 know of those fonts
 * customize the configuration file `./config/10-symbols.conf` replacing `PragmataPro` with the name of the font you want to use in the terminal (I will add more fonts in the future so that this step could be skippable)
 * copy the above configuration file to `~/.config/fontconfig/conf.d` directory
+
+## How to install (OSX)
+* Follow [this detailed instructions](https://github.com/gabrielelana/awesome-terminal-fonts/wiki/OS-X) contributed by [@inkrement](https://github.com/inkrement)
+* If it still doesn't work, consider to use the [patching strategy](#patching-vs-fallback)
+
+## How to install (Windows)
+I don't know how to do that, if you do, open a pull request
 
 ## License
 [MIT](https://github.com/gabrielelana/awesome-terminal-fonts/blob/master/LICENSE)
