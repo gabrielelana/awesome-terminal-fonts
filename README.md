@@ -34,7 +34,17 @@ In this repository you can find a bunch of fonts that I use as symbol fonts with
 * If it still doesn't work, consider to use the [patching strategy](#patching-vs-fallback)
 
 ## How to install (Windows)
-I don't know how to do that, if you do, open a pull request
+
+* Make sure you have permissions to execute Powershell scripts in your machine. To do so, open Windows Powershell as Administrator and paste & exec the following command: 
+
+```powershell
+Set-ExecutionPolicy RemoteSigned
+```
+
+* Then exec install script:
+```powershell
+./install.ps1
+``` 
 
 ## License
 [MIT](https://github.com/gabrielelana/awesome-terminal-fonts/blob/master/LICENSE)
