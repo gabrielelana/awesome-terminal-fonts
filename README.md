@@ -15,7 +15,9 @@ There are two strategies that could be used to have symbols in a terminal
 Initially I used the first strategy, later I switched to the second. The patching strategy it's more reliable and portable, the problem is that you need to patch every monospace font you want to use and patching a single font it's a lot of manual fine tuning. If you want you can find all previous patched fonts in [patching-strategy branch](https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy)
 
 ## Font Maps
-* Wouldn't be cool to be able to call glyphs/symbols by name (ex. AWESOME_LONG_ARROW_DOWN) instead of by codepoint (ex. `\uf175`)? This is what font maps are meant for, for every symbol font in `./fonts` directory you can find a map file in `./build` directory that maps each glyph's name to its codepoint in a way that is understandable by most shells
+Referring to glyphs by codepints (eg. `\uf00c`) in your scripts or shell configuration it's not recommended because icon fonts like [Font Awesome](http://fontawesome.io/) use [code points ranges](https://en.wikipedia.org/wiki/Private_Use_Areas) those ranges are not disciplined by the unicode consortium, every font can associate every glyphs to those codepoints. This means that [Font Awesome](http://fontawesome.io/) can choose to move glyphs around freely, today `\uf00c` is associated to the `check` symbol, tomorrow it can be associated to something else. Moreover, more than one icon font can use the same codepoint for different glyphs and if we want to use them both we need to move one of them. So, if you use a codepoint to refer to a glyph after an update that codepoint can point to another glyph. To avoid this situation you can use the font maps in the `./build` directory, font maps are scripts which define shell variables that give names to glyphs, by sourcing those files in your shell you can refer to glyphs by name (eg. `$CODEPOINT_OF_AWESOME_CHECK`).
+
+TLDR: don't refer to glyphs by codepoints (eg. `\uf00c`) but by name (eg. `$CODEPOINT_OF_AWESOME_CHECK`) to make your scripts and shell configurations resilient to future updates. To do that don't forget to copy font maps (`*.sh` files) in the `./build` directory in your home directory and to source them in your shell startup
 
 ## Included Fonts
 In this repository you can find a bunch of fonts that I use as symbol fonts with the relative font maps
@@ -25,26 +27,29 @@ In this repository you can find a bunch of fonts that I use as symbol fonts with
 
 ## How to install (Linux)
 * copy all the fonts from `./build` directory to `~/.fonts` directory
+* copy all the font maps (all `*.sh` files) from `./build` directory to `~/.fonts` directory
 * run `fc-cache -fv ~/.fonts` to let freetype2 know of those fonts
 * customize the configuration file `./config/10-symbols.conf` replacing `PragmataPro` with the name of the font you want to use in the terminal (I will add more fonts in the future so that this step could be skippable)
 * copy the above configuration file to `~/.config/fontconfig/conf.d` directory
+* source the font maps (`source ~/.fonts/*.sh`) in your shell startup script (eg. `~/.bashrc` or `~/.zshrc`)
 
 ## How to install (OSX)
-* Follow [this detailed instructions](https://github.com/gabrielelana/awesome-terminal-fonts/wiki/OS-X) contributed by [@inkrement](https://github.com/inkrement)
+* follow [this detailed instructions](https://github.com/gabrielelana/awesome-terminal-fonts/wiki/OS-X) contributed by [@inkrement](https://github.com/inkrement)
+* copy all the fonts maps (all `*.sh` files) from `./build` directory to `~/.fonts` directory
+* source the font maps (`source ~/.fonts/*.sh`) in your shell startup script (eg. `~/.bashrc` or `~/.zshrc`)
 * If it still doesn't work, consider to use the [patching strategy](#patching-vs-fallback)
 
 ## How to install (Windows)
-
-* Make sure you have permissions to execute Powershell scripts in your machine. To do so, open Windows Powershell as Administrator and paste & exec the following command: 
+* make sure you have permissions to execute Powershell scripts in your machine. To do so, open Windows Powershell as Administrator and paste & exec the following command:
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned
 ```
 
-* Then exec install script:
+* then exec install script:
 ```powershell
 ./install.ps1
-``` 
+```
 
 ## License
 [MIT](https://github.com/gabrielelana/awesome-terminal-fonts/blob/master/LICENSE)
