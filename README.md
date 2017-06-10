@@ -33,6 +33,10 @@ In this repository you can find a bunch of fonts that I use as symbol fonts with
 * copy the above configuration file to `~/.config/fontconfig/conf.d` directory
 * source the font maps (`source ~/.fonts/*.sh`) in your shell startup script (eg. `~/.bashrc` or `~/.zshrc`)
 
+### Arch Linux
+We have been included in the official repositories, so if you are running an Arch Linux
+* run `pacman -Syu awesome-terminal-fonts`
+
 ## How to install (OSX)
 * follow [this detailed instructions](https://github.com/gabrielelana/awesome-terminal-fonts/wiki/OS-X) contributed by [@inkrement](https://github.com/inkrement)
 * copy all the fonts maps (all `*.sh` files) from `./build` directory to `~/.fonts` directory
