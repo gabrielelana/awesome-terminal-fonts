@@ -34,7 +34,7 @@ In this repository you can find a bunch of fonts that I use as symbol fonts with
 * source the font maps (`source ~/.fonts/*.sh`) in your shell startup script (eg. `~/.bashrc` or `~/.zshrc`)
 
 ### Arch Linux
-We have been included in the official repositories, so if you are running an Arch Linux
+We have been included in the [official repositories](https://www.archlinux.org/packages/community/any/awesome-terminal-fonts/), so if you are running an Arch Linux
 * run `pacman -Syu awesome-terminal-fonts`
 
 ## How to install (OSX)
