@@ -21,9 +21,10 @@ TLDR: don't refer to glyphs by codepoints (eg. `\uf00c`) but by name (eg. `$CODE
 
 ## Included Fonts
 In this repository you can find a bunch of fonts that I use as symbol fonts with the relative font maps
-* **Font Awesome**: `./fonts/fontawesome-webfont.ttf`, for further informations and license see http://fortawesome.github.io/Font-Awesome
-* **Octicons**: `./fonts/octicons-regular.ttf`, for further informations and license see https://github.com/blog/1135-the-making-of-octicons
-* **Pomicons**: `./fonts/pomicons-regular.ttf`, for further informations and license see https://github.com/gabrielelana/pomicons
+* **Font Awesome 4.7.0**: `./fonts/fontawesome-regular.ttf`, for further informations and license see http://fortawesome.github.io/Font-Awesome
+* **Devicons 1.8.0**: `./fonts/devicons-regular.ttf`, for further informations and license see https://github.com/vorillaz/devicons
+* **Octicons 1.0.0**: `./fonts/octicons-regular.ttf`, for further informations and license see https://github.com/blog/1135-the-making-of-octicons
+* **Pomicons 1.0.0**: `./fonts/pomicons-regular.ttf`, for further informations and license see https://github.com/gabrielelana/pomicons
 
 ## How to install (Linux)
 * copy all the fonts from `./build` directory to `~/.fonts` directory
