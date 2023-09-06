@@ -28,11 +28,26 @@ In this repository you can find a bunch of fonts that I use as symbol fonts with
 
 ## How to install (Linux)
 * copy all the fonts from `./build` directory to `~/.fonts` directory
+```shell
+cp ./build ~/.fonts
+```
 * copy all the font maps (all `*.sh` files) from `./build` directory to `~/.fonts` directory
-* run `fc-cache -fv ~/.fonts` to let freetype2 know of those fonts
+```shell
+cp *.sh ~/.fonts
+```
+* run this command to let freetype2 know of those fonts
+```shell
+fc-cache -fv ~/.fonts
+```
 * customize the configuration file `./config/10-symbols.conf` replacing `PragmataPro` with the name of the font you want to use in the terminal (I will add more fonts in the future so that this step could be skippable)
 * copy the above configuration file to `~/.config/fontconfig/conf.d` directory
-* source the font maps (`source ~/.fonts/*.sh`) in your shell startup script (eg. `~/.bashrc` or `~/.zshrc`)
+```shell
+cp ./config/10-symbols.conf ~/.config/fontconfig/conf.d
+```
+* source the font maps in your shell startup script (eg. `~/.bashrc` or `~/.zshrc`)
+```shell
+source ~/.fonts/*.sh
+```
 
 ### Arch Linux
 We have been included in the [official repositories](https://www.archlinux.org/packages/community/any/awesome-terminal-fonts/), so if you are running an Arch Linux
