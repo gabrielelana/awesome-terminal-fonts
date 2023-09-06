@@ -29,11 +29,11 @@ In this repository you can find a bunch of fonts that I use as symbol fonts with
 ## How to install (Linux)
 * copy all the fonts from `./build` directory to `~/.fonts` directory
 ```shell
-cp ./build ~/.fonts
+cp -a ./build ~/.fonts
 ```
 * copy all the font maps (all `*.sh` files) from `./build` directory to `~/.fonts` directory
 ```shell
-cp *.sh ~/.fonts
+cp -v *.sh ~/.fonts
 ```
 * run this command to let freetype2 know of those fonts
 ```shell
@@ -42,7 +42,7 @@ fc-cache -fv ~/.fonts
 * customize the configuration file `./config/10-symbols.conf` replacing `PragmataPro` with the name of the font you want to use in the terminal (I will add more fonts in the future so that this step could be skippable)
 * copy the above configuration file to `~/.config/fontconfig/conf.d` directory
 ```shell
-cp ./config/10-symbols.conf ~/.config/fontconfig/conf.d
+cp -v ./config/10-symbols.conf ~/.config/fontconfig/conf.d
 ```
 * source the font maps in your shell startup script (eg. `~/.bashrc` or `~/.zshrc`)
 ```shell
