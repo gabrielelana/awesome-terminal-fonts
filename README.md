@@ -27,8 +27,7 @@ In this repository you can find a bunch of fonts that I use as symbol fonts with
 * **Pomicons 1.0.0**: `./fonts/pomicons-regular.ttf`, for further informations and license see https://github.com/gabrielelana/pomicons
 
 ## How to install (Linux)
-* copy all the fonts from `./build` directory to `~/.fonts` directory
-* copy all the font maps (all `*.sh` files) from `./build` directory to `~/.fonts` directory
+* copy fonts (`*.ttf` files) and font map (`*.sh` files) from `./build` to `~/.fonts` (eg. `cp -v ./build/* ~/.fonts/`)
 * run `fc-cache -fv ~/.fonts` to let freetype2 know of those fonts
 * customize the configuration file `./config/10-symbols.conf` replacing `PragmataPro` with the name of the font you want to use in the terminal (I will add more fonts in the future so that this step could be skippable)
 * copy the above configuration file to `~/.config/fontconfig/conf.d` directory
